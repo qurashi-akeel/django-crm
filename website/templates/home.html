@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% block content %}
+
+<div>
+  {% if user.is_authenticated %}
+  <h1>Hello</h1>
+
+  {% else %}
+  <form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+    <div class="space-y-12">
+      <div class="pb-12">
+        <h2 class="text-base font-semibold leading-7 text-gray-100">
+          Login to CRM
+        </h2>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <label
+              for="username"
+              class="block text-sm font-medium leading-6 text-gray-100"
+              >Username</label
+            >
+            <div class="mt-2">
+              <div
+                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-700 sm:max-w-md"
+              >
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  autocomplete="off"
+                  class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-100 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                  placeholder="janesmith"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div class="sm:col-span-4">
+            <label
+              for="password"
+              class="block text-sm font-medium leading-6 text-gray-100"
+              >Password</label
+            >
+            <div class="mt-2">
+              <div
+                class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-700 sm:max-w-md"
+              >
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="block flex-1 border-0 bg-transparent py-1.5 px-2 text-gray-100 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-start gap-x-6">
+      <button
+        type="submit"
+        class="rounded-md bg-gray-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+  {% endif %}
+</div>
+
+{% endblock %}

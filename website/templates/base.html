@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django CRM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-800 text-white">
+    {% include 'navbar.html' %}
+    <div class="mx-2">
+      <main class="container mx-auto my-4">
+        <div class="text-white p-2 rounded-lg mb-4 max-w-96 float-right">
+          {% if messages %}
+            {% for message in messages %}
+              <p>
+                {{ message }}
+              </p>
+            {% endfor %}
+          {% endif %}
+        </div>
+          {% block content %} {% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

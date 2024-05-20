@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-xl my-4">Register for CRM</h1>
+<hr class="my-5">
+<form action="" method="post" class="flex flex-col gap-5 text-gray-500">
+  {% csrf_token %}
+    
+  {{ form.as_p }}
+  <div class="flex items-center justify-start gap-x-6">
+    <button
+      type="submit"
+      class="rounded-md bg-gray-600 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700"
+    >
+      Register
+    </button>
+  </div>
+</form>
+{% endblock %}
